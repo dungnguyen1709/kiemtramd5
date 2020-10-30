@@ -1,0 +1,44 @@
+<div>
+  <h4>Edit Book</h4>
+  <form (ngSubmit)="onSubmit()" [formGroup] ="updateBooks">
+    <table class="table table-bordered">
+      <tr>
+        <td>Book name</td>
+        <td>
+          <input class="form-control" type="text" formControlName="title">
+          <div *ngIf="updateBooks.get('title').hasError('required') && updateBooks.touched" class="text-danger">
+            field require
+          </div>
+          <div *ngIf="updateBooks.get('title').hasError('minlength')" class="text-danger">
+            field min length 6
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Author</td>
+        <td>
+          <input class="form-control" type="text" formControlName="author">
+          <div *ngIf="updateBooks.get('author').hasError('required') && updateBooks.touched" class="text-danger">
+            field require
+          </div>
+          <div *ngIf="updateBooks.get('author').hasError('minlength')" class="text-danger">
+            field min length 6
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>
+          <textarea class="form-control" formControlName="description" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class="btn btn-primary mr-2" type="submit" [disabled]="updateBooks.invalid">Save</button>
+          <button class="btn btn-secondary" routerLink="">Back To List</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

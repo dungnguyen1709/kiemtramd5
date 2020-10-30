@@ -1,0 +1,19 @@
+<div *ngIf="book">
+  <h4>Details</h4>
+  <h4>
+     Book name :
+    {{book.title}}
+  </h4>
+  <h4>
+    Author :
+    {{book.author}}
+  </h4>
+  <h4>
+    <p>Description :</p>
+    {{book.description}}
+  </h4>
+  <a routerLink="">Back To List</a>
+</div>
+<ng-template >
+  <p>Nothing to show</p>
+</ng-template>
